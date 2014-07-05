@@ -1,0 +1,41 @@
+<!DOCTYPE>
+<html>
+
+<head>
+    <title>{% block title %}Fitness Website{% endblock title %}</title>
+    <link rel="stylesheet" href="/staticFiles/layout.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <a class="homeButton" href="{% url 'home' %}">Fitness Website</a>
+        </div>
+
+        <div class="navigation">
+            <ul>
+                {% if not user.is_authenticated %}
+                <li><a href="{% url 'signup' %}" class="btn btn-default navbar-btn">Register</a></li>
+                <li><a href="{% url 'login' %}" class="btn btn-default navbar-btn">Login</a></li>
+                {% else %}
+                <li><a href="{% url 'logout' %}" class="btn btn-default navbar-btn">Logout</a></li>
+                <li><a href="{% url 'profile' %}" class="btn btn-default navbar-btn">Profile</a></li>
+                {% endif %}
+            </ul>
+        </div>
+
+        <div class="headlines">
+            {% block headline %}{% endblock headline %}
+        </div>
+
+        <div class="content">
+            {% block content %}{% endblock content %}
+        </div>
+
+    </div>
+
+</body>
+
+</html>

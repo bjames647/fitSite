@@ -1,0 +1,13 @@
+{% extends '_layouts/base.html' %}
+
+{% load crispy_forms_tags %}
+{% block title %}{% if user.is_authenticated %} {{ user.username }}{% endif %} | {{ block.super }}{% endblock %}
+
+{% block headline %}<h1>YOUR PROFILE</h1>{% endblock %}
+
+{% block content %}
+<p>Username: {% if user.is_authenticated %} {{ user.username }} {{user.email}} {% endif %}</p>
+
+{% crispy form %}
+
+{% endblock %}

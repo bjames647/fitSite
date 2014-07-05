@@ -1,0 +1,7 @@
+{% extends '_layouts/base.html' %}
+
+{% block headline %}<h1>HOME</h1>{% endblock headline %}
+
+{% block content %}
+<p>Welcome to the first version of the website{% if user.is_authenticated %} {{ user.username }}{% endif %}!</p>
+{% endblock %}
