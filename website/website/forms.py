@@ -3,7 +3,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, ButtonHolder, Submit
-#from website.userProfile.models import fitUser
+from userProfile.models import fitUser
+
 
 class RegistrationForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
@@ -19,6 +20,7 @@ class RegistrationForm(UserCreationForm):
             )
         )
 
+
 class LoginForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super(LoginForm, self).__init__(*args, **kwargs)
@@ -31,7 +33,7 @@ class LoginForm(AuthenticationForm):
                 Submit('login', 'Login', css_class='btn-primary')
             )
         )
-
+'''
 class ProfileForm(forms.Form):
     email = forms.CharField(
         label = "email:",
@@ -48,11 +50,13 @@ class ProfileForm(forms.Form):
             )
         )
 '''
+
+
 class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = fitUser
-        fields = ('email')
+        fields = ('height', 'weight')
 
     def __init__(self, *args, **kwargs):
         super(ProfileForm, self).__init__(*args, **kwargs)
@@ -63,4 +67,4 @@ class ProfileForm(forms.ModelForm):
             ButtonHolder(
                 Submit('updateProfile', 'UpdateProfile', css_class='btn-primary')
             )
-        )'''
+        )

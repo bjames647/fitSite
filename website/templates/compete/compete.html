@@ -1,0 +1,16 @@
+{% extends '_layouts/base.html' %}
+
+{% block title %}{% if user.is_authenticated %} {{ user.username }}{% endif %} | {{ block.super }}{% endblock %}
+
+{% block headline %}<h1>COMPETE</h1>{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<p>Username:  {{ user.username }}</p>
+<p>Competition: </p>
+
+{% endif %}
+
+
+{% endblock %}

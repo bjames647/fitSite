@@ -20,8 +20,9 @@
                 <li><a href="{% url 'signup' %}" class="btn btn-default navbar-btn">Register</a></li>
                 <li><a href="{% url 'login' %}" class="btn btn-default navbar-btn">Login</a></li>
                 {% else %}
-                <li><a href="{% url 'logout' %}" class="btn btn-default navbar-btn">Logout</a></li>
                 <li><a href="{% url 'profile' %}" class="btn btn-default navbar-btn">Profile</a></li>
+                <li><a href="{% url 'compete' %}" class="btn btn-default navbar-btn">Compete</a></li>
+                <li><a href="{% url 'logout' %}" class="btn btn-default navbar-btn">Logout</a></li>
                 {% endif %}
             </ul>
         </div>
